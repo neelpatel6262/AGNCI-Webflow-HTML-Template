@@ -30,8 +30,7 @@ Responsive design principles
 
 Clone this repo and open index.html in your browser.
 
-git clone https://github.com/your-username/AGNCI-Webflow-HTML-Template.git
-cd AGNCI-Webflow-HTML-Template
+git clone https: https://github.com/neelpatel6262/AGNCI-Webflow-HTML-Template
 
 
 Open in your browser:
