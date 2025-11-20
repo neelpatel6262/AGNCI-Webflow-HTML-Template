@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="AGNCI - A creative design agency crafting exceptional brands with creativity, innovation & expertise.">
   <title>AGNCI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 
 </head>
 
@@ -26,11 +27,11 @@
         alt="AGNCI Logo">
     </div>
 
-    <div class="menu-toggle" onclick="toggleMenu()">
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
 
     <div class="nav-links">
       <a href="#">Home</a>
@@ -45,7 +46,7 @@
     <button class="nav-cta">
       Contact us <img
         src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/6655a8d48fd0062f306502ad_Button%20Icon.svg"
-        alt="">
+        alt="Contact icon">
     </button>
   </div>
 
@@ -66,7 +67,7 @@
       <div class="hero-distribtion-wrap">
         <button class="hero-btn">
           <img src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/6655aae14283860d4a020b1c_eye.svg"
-            alt=""> View work
+            alt="View work icon"> View work
         </button>
         <p>10X award-winning agency for professional growth.</p>
       </div>
@@ -82,7 +83,7 @@
   <div class="about-section">
     <div class="about-content">
       <div class="right-container">
-        <img src="/assets/66582e8d2eeb50e2202bbb2c_about-img.jpg" alt="About Image">
+        <img src="/assets/66582e8d2eeb50e2202bbb2c_about-img.jpg" alt="Team working on creative projects">
       </div>
       <div class="left-container">
         <div class="counter">
@@ -112,41 +113,41 @@
       </div>
       <div class="work-body-heading">
         <img src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/6656b8f17519346bfe251f6c_arrow-right.svg"
-          alt=""> View all work
+          alt="View all work icon"> View all work
       </div>
     </div>
 
     <div class="work-grid-section">
       <div class="work-image">
-        <img src="/assets/665862fdacd072a674e1d101_work-img-p-1080.jpg" alt="Work Image 1">
+        <img src="/assets/665862fdacd072a674e1d101_work-img-p-1080.jpg" alt="Creative web design project showcase">
       </div>
       <div class="work-image">
-        <img src="/assets/665864db6c48d0036656bbc4_work-img2-p-1080.jpg" alt="Work Image 2">
+        <img src="/assets/665864db6c48d0036656bbc4_work-img2-p-1080.jpg" alt="Branding and identity design work">
       </div>
       <div class="work-image">
-        <img src="/assets/666a8a540d3b36ba76b80a13_work-img3-p-1080.jpg" alt="Work Image 3">
+        <img src="/assets/666a8a540d3b36ba76b80a13_work-img3-p-1080.jpg" alt="Digital marketing campaign visual">
       </div>
       <div class="work-image">
-        <img src="/assets/666fd4246138c92ea58b04c9_rich-image.jpg" alt="Work Image 4">
+        <img src="/assets/666fd4246138c92ea58b04c9_rich-image.jpg" alt="Content creation and social media design">
       </div>
     </div>
 
     <div class="client-logo-list-section">
       <div class="clients"><img
           src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/665d9f5f24f4466669cb8c33_Compnay%20logo-16.svg"
-          alt="Client Logo"></div>
+          alt="Client company logo"></div>
       <div class="clients"><img
           src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/665d9ebebc6d7e61fa4cd863_Compnay%20logo-8.svg"
-          alt="Client Logo"></div>
+          alt="Client company logo"></div>
       <div class="clients"><img
           src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/665d9dcac2837af5dd9a0aa9_Compnay%20logo.svg"
-          alt="Client Logo"></div>
+          alt="Client company logo"></div>
       <div class="clients"><img
           src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/665d9f003c3a14c8248e5951_Compnay%20logo-5.svg"
-          alt="Client Logo"></div>
+          alt="Client company logo"></div>
       <div class="clients"><img
           src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/665d9f386589fc2714c597c3_Compnay%20logo-15.svg"
-          alt="Client Logo"></div>
+          alt="Client company logo"></div>
     </div>
   </div>
 
@@ -159,7 +160,7 @@
     <div class="service-grid">
       <div class="service-heading">1. Web design and development</div>
       <div class="service-image">
-        <img src="/assets/66582f291bee08de00f3921a_service-img1.png" alt="Web Design">
+        <img src="/assets/66582f291bee08de00f3921a_service-img1.png" alt="Custom website design and development">
       </div>
       <div class="service-subheading">
         Crafting captivating websites from start to finish, tailored to your brand's identity and goals for an engaging
@@ -170,7 +171,7 @@
     <div class="service-grid">
       <div class="service-heading">2. Graphic design</div>
       <div class="service-image">
-        <img src="/assets/66582f2a2eeb50e2202c1ac3_service.png" alt="Graphic Design">
+        <img src="/assets/66582f2a2eeb50e2202c1ac3_service.png" alt="Branding and logo design">
       </div>
       <div class="service-subheading">
         Our designers craft captivating visuals, from logos to branding materials, bringing your brand to life.
@@ -180,7 +181,7 @@
     <div class="service-grid">
       <div class="service-heading">3. Digital marketing</div>
       <div class="service-image">
-        <img src="/assets/66582f2a848a3d55847be85f_service-img.png" alt="Digital Marketing">
+        <img src="/assets/66582f2a848a3d55847be85f_service-img.png" alt="SEO and digital advertising">
       </div>
       <div class="service-subheading">
         Boost your online presence with digital marketing SEO, social media, email, and PPC—we've got you covered.
@@ -190,7 +191,7 @@
     <div class="service-grid-last">
       <div class="service-heading">4. Content creation</div>
       <div class="service-image">
-        <img src="/assets/6655c793b534dcda0a8405b3_footer-img.png" alt="Content Creation">
+        <img src="/assets/6655c793b534dcda0a8405b3_footer-img.png" alt="Blog and social media content">
       </div>
       <div class="service-subheading">
         Engage your audience with compelling content from blogs to videos that drive quality results.
@@ -215,7 +216,7 @@
     <div class="blog-grid">
       <div class="blog-content-wrap">
         <div class="blog-image">
-          <img src="/assets/Blog-One.jpg" alt="Blog Image">
+          <img src="/assets/Blog-One.jpg" alt="Digital marketing strategy and SEO techniques">
         </div>
         <div class="blog-text-content">
           <div class="blog-title-wrap">
@@ -229,7 +230,7 @@
 
       <div class="blog-content-wrap">
         <div class="blog-image">
-          <img src="/assets/Blog-Two.jpg" alt="Blog Image">
+          <img src="/assets/Blog-Two.jpg" alt="Virtual and augmented reality in marketing">
         </div>
         <div class="blog-text-content">
           <div class="blog-title-wrap">
@@ -243,7 +244,7 @@
 
       <div class="blog-content-wrap">
         <div class="blog-image">
-          <img src="/assets/Blog-Three.jpg" alt="Blog Image">
+          <img src="/assets/Blog-Three.jpg" alt="Social media advertising and ROI optimization">
         </div>
         <div class="blog-text-content">
           <div class="blog-title-wrap">
@@ -257,7 +258,7 @@
 
       <div class="blog-content-wrap">
         <div class="blog-image">
-          <img src="/assets/Blog-Four.jpg" alt="Blog Image">
+          <img src="/assets/Blog-Four.jpg" alt="Digital transformation and innovation trends">
         </div>
         <div class="blog-text-content">
           <div class="blog-title-wrap">
@@ -314,7 +315,7 @@
     </div>
 
     <div class="footer-img">
-      <img src="/assets/6655c793b534dcda0a8405b3_footer-img.png" alt="Footer Design">
+      <img src="/assets/6655c793b534dcda0a8405b3_footer-img.png" alt="Decorative design element">
     </div>
   </div>
 
