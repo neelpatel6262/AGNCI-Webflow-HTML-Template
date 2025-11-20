@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGNCI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=BioRhyme:wght@200..800&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italiana&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&family=Unbounded:wght@200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Bricolage Grotesque", sans-serif;
+      background-color: #f0ecdc;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      margin: 50px 60px 0px 60px;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0px 10px 0px;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      width: 146px;
+      height: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.6s ease;
+      transform-origin: left center;
+      will-change: transform;
+    }
+
+    .logo:hover img {
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+    }
+
+    .logo:hover::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.13);
+      transform: rotate(25deg);
+      animation: shine 1.5s ease-out;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -60%;
+      }
+
+      70% {
+        left: 110%;
+      }
+
+      100% {
+        left: 110%;
+      }
+    }
+
+    @keyframes logoIntro {
+      0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.95);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .logo img {
+        animation: logoIntro 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+        animation-delay: 0.4s;
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #000;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-links a:hover {
+      color: #454543;
+    }
+
+    .arrow-down {
+      width: 18px;
+      height: 18px;
+    }
+
+    .nav-cta {
+      align-items: center;
+      border: 0.8px solid #000;
+      display: flex;
+      font-family: Inter;
+      font-weight: 500;
+      gap: 5px;
+      padding: 16px 32px;
+      background-color: #eafd32;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        background-color 0.4s ease, border-color 0.4s ease;
+      border: none;
+      font-size: 16px;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-3px) scale(1.02);
+      background-color: #000;
+      border-color: #eafd32;
+      color: #eafd32;
+      box-shadow: 0 10px 20px rgba(234, 253, 50, 0.25);
+    }
+
+    .nav-cta img {
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+        filter 0.4s ease;
+    }
+
+    .nav-cta:hover img {
+      transform: translateX(4px) rotate(-15deg);
+      filter: invert(89%) sepia(62%) saturate(4587%) hue-rotate(10deg) brightness(104%) contrast(99%);
+    }
+
+    .nav-cta:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: 0 2px 5px rgba(234, 253, 50, 0.3);
+      transition-duration: 0.1s;
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background-color: #000;
+      transition: 0.3s;
+    }
+
+    /* Hero section styles */
+    .hero-section {
+      background-color: #f0ecdc;
+      padding: 130px 60px 130px 60px;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .right-content {
+      flex: 1;
+      max-width: 800px;
+    }
+
+    .hero-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      margin-bottom: 20px;
+    }
+
+    .hero-text {
+      font-size: 220px;
+      font-weight: 700;
+      line-height: 110px;
+      color: #000;
+    }
+
+    .text-wrapper {
+      color: #eafd32;
+      font-size: 220px;
+      font-weight: 700;
+      line-height: 110px;
+      text-shadow: 2px 2px 0 #000, 4px 4px 0 #000;
+    }
+
+    .hero-content {
+      font-size: 38px;
+      line-height: 54px;
+      margin: 20px 0px 0px;
+    }
+
+    .text-style {
+      font-family: "Zilla Slab", serif;
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    .left-content {
+      flex: 1;
+      perspective: 1200px;
+      max-width: 590px;
+    }
+
+    .left-content img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+      transform-origin: center;
+      transform-style: preserve-3d;
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    @keyframes heroEntrance {
+      0% {
+        opacity: 0;
+        transform: translateX(-80px) rotateY(15deg) scale(0.95);
+        filter: blur(4px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0) rotateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    .left-content img {
+      animation: heroEntrance 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+
+    .left-content:hover img {
+      transform: translateZ(30px) rotateY(-5deg) scale(1.03);
+      filter: drop-shadow(0 20px 20px rgba(0, 0, 0, 0.2)) brightness(1.05);
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0.5deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(-0.5deg);
+      }
+    }
+
+    .left-content img {
+      animation: heroEntrance 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards,
+        float 8s ease-in-out infinite 1.5s;
+    }
+
+    .hero-distribtion-wrap {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      margin: 50px 0px 0px;
+      flex-wrap: wrap;
+    }
+
+    .hero-btn {
+      align-items: center;
+      border: 0.8px solid #000;
+      display: flex;
+      font-family: Inter;
+      font-weight: 500;
+      gap: 5px;
+      padding: 16px 32px;
+      background-color: #eafd32;
+      cursor: pointer;
+      border: none;
+      font-size: 16px;
+    }
+
+    .hero-distribtion-wrap p {
+      font-size: 18px;
+      line-height: 25.2px;
+    }
+
+    /* About section styles */
+    .about-section {
+      background-color: #faf6ea;
+      padding: 130px 60px 130px 60px;
+    }
+
+    .about-content {
+      display: flex;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .right-container {
+      flex: 1;
+    }
+
+    .right-container img {
+      width: 100%;
+      height: auto;
+    }
+
+    .left-container {
+      flex: 1;
+    }
+
+    .counter {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
+      margin: 26px 0px 26px 0px;
+    }
+
+    .one {
+      text-align: left;
+    }
+
+    .about-counter-title {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: 76px;
+      font-weight: 700;
+      line-height: 98.8px;
+      margin: 0px 0px 10px;
+    }
+
+    .counter-title {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 27px;
+    }
+
+    .about-distribution {
+      font-size: 32px;
+      line-height: 44.8px;
+      margin: 50px 0px 26px 0px;
+    }
+
+    .about-btn {
+      background-color: #eafd32;
+      border: 0.8px solid #000;
+      font-family: Inter;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 16px 32px;
+      cursor: pointer;
+      margin: 50px 0px 26px 0px;
+    }
+
+    /* Work section styles */
+    .work-section {
+      background-color: #f0ecdc;
+      padding: 100px 60px 130px 60px;
+    }
+
+    .work-title-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .work-heading {
+      font-size: 76px;
+      font-weight: 700;
+      line-height: 98.8px;
+      margin: 0px 0px 10px;
+    }
+
+    .work-highlight {
+      font-family: "Zilla Slab", serif;
+    }
+
+    .work-body-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .work-grid-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px;
+      margin-bottom: 100px;
+    }
+
+    .work-image img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 675/480;
+      object-fit: cover;
+    }
+
+    .client-logo-list-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      padding: 50px 0;
+    }
+
+    .clients img {
+      width: 160px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    /* Service section styles */
+    .service-section {
+      background-color: #faf6ea;
+      padding: 130px 60px 130px 60px;
+    }
+
+    .service-title-section {
+      font-size: 76px;
+      font-weight: 700;
+      line-height: 98.8px;
+      margin-bottom: 100px;
+    }
+
+    .service-highlight {
+      font-family: "Zilla Slab", serif;
+    }
+
+    .service-grid,
+    .service-grid-last {
+      display: grid;
+      grid-template-columns: 2fr 1fr 2fr;
+      gap: 50px;
+      align-items: center;
+      padding: 20px 30px;
+      margin-bottom: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    .service-grid:hover,
+    .service-grid-last:hover {
+      background-color: #f0ecdc;
+    }
+
+    .service-heading {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 44.8px;
+    }
+
+    .service-image img {
+      width: 200px;
+      height: auto;
+    }
+
+    .service-subheading {
+      font-size: 18px;
+      line-height: 25.2px;
+    }
+
+    /* Video section styles */
+    .video-section {
+      background-size: cover;
+      background-position: center;
+      height: 700px;
+      position: relative;
+      background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    }
+
+    .pause-btn {
+      background-color: #eafd32;
+      border: 0.8px solid #000;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 30px;
+      cursor: pointer;
+    }
+
+    /* Blog section styles */
+    .blog-section {
+      padding: 50px 60px 130px 60px;
+    }
+
+    .blog-title-section {
+      font-size: 76px;
+      font-weight: 700;
+      line-height: 98.8px;
+      margin-bottom: 50px;
+    }
+
+    .blog-highlight {
+      font-family: "Zilla Slab", serif;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px;
+    }
+
+    .blog-content-wrap {
+      display: flex;
+      background-color: #eafd32;
+      height: 234px;
+    }
+
+    .blog-image {
+      flex: 1;
+    }
+
+    .blog-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blog-text-content {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .blog-title-wrap {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .blog-publish-title {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* CTA section styles */
+    .cta-section {
+      background-color: #f0ecdc;
+      padding: 130px 60px;
+    }
+
+    .cta-content {
+      font-weight: 600;
+      line-height: 114px;
+      text-align: center;
+      font-size: 76px;
+    }
+
+    .social-media {
+      font-family: "Zilla Slab", serif;
+      font-weight: 700;
+      color: #eafd32;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-decoration: underline;
+    }
+
+    /* Footer section styles */
+    .footer-section {
+      background-color: black;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-container {
+      padding: 130px 60px;
+      display: flex;
+      gap: 100px;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-left {
+      flex: 1;
+    }
+
+    .footer-logo img {
+      margin-bottom: 30px;
+      width: 400px;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .footer-distribation {
+      font-size: 18px;
+      line-height: 25.2px;
+      margin: 30px 0px 0px;
+    }
+
+    .footer-menu-list,
+    .footer-link {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-menu-list a,
+    .footer-link a {
+      font-size: 18px;
+      line-height: 25.2px;
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .footer-menu-list a:hover,
+    .footer-link a:hover {
+      color: #eafd32;
+    }
+
+    .footer-img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    .footer-img img {
+      width: 400px;
+      height: auto;
+      opacity: 0.3;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 1200px) {
+      .navbar {
+        margin: 30px 40px 0px 40px;
+      }
+
+      .hero-section,
+      .about-section,
+      .work-section,
+      .service-section,
+      .blog-section,
+      .cta-section,
+      .footer-container {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+
+      .hero-text,
+      .text-wrapper {
+        font-size: 180px;
+        line-height: 90px;
+      }
+
+      .hero-content {
+        font-size: 32px;
+        line-height: 45px;
+      }
+
+      .work-heading,
+      .about-counter-title,
+      .service-title-section,
+      .blog-title-section,
+      .cta-content {
+        font-size: 64px;
+      }
+
+      .about-distribution {
+        font-size: 28px;
+        line-height: 38px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .navbar {
+        margin: 20px 20px 0px 20px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #f0ecdc;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+
+      .hero-section {
+        flex-direction: column-reverse;
+        padding: 80px 20px;
+        text-align: center;
+      }
+
+      .hero-text,
+      .text-wrapper {
+        font-size: 120px;
+        line-height: 60px;
+      }
+
+      .hero-content {
+        font-size: 24px;
+        line-height: 32px;
+      }
+
+      .hero-distribtion-wrap {
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .about-section {
+        padding: 80px 20px;
+      }
+
+      .about-content {
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .counter {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-distribution {
+        font-size: 24px;
+        line-height: 32px;
+        text-align: center;
+      }
+
+      .work-section {
+        padding: 80px 20px;
+      }
+
+      .work-title-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+      }
+
+      .work-heading {
+        font-size: 48px;
+        line-height: 52px;
+      }
+
+      .work-grid-section {
+        grid-template-columns: 1fr;
+      }
+
+      .client-logo-list-section {
+        gap: 30px;
+      }
+
+      .clients img {
+        width: 120px;
+        height: 30px;
+      }
+
+      .service-section {
+        padding: 80px 20px;
+      }
+
+      .service-title-section {
+        font-size: 48px;
+        line-height: 52px;
+      }
+
+      .service-grid,
+      .service-grid-last {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+        padding: 20px 10px;
+      }
+
+      .service-image img {
+        width: 150px;
+      }
+
+      .video-section {
+        height: 400px;
+      }
+
+      .blog-section {
+        padding: 80px 20px;
+      }
+
+      .blog-title-section {
+        font-size: 48px;
+        line-height: 52px;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-content-wrap {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .blog-text-content {
+        padding: 20px;
+      }
+
+      .cta-section {
+        padding: 80px 20px;
+      }
+
+      .cta-content {
+        font-size: 48px;
+        line-height: 60px;
+      }
+
+      .footer-container {
+        padding: 80px 20px;
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .footer-img {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+
+      .hero-text,
+      .text-wrapper {
+        font-size: 80px;
+        line-height: 40px;
+      }
+
+      .hero-content {
+        font-size: 20px;
+        line-height: 28px;
+      }
+
+      .work-heading,
+      .service-title-section,
+      .blog-title-section {
+        font-size: 36px;
+        line-height: 40px;
+      }
+
+      .about-counter-title {
+        font-size: 48px;
+        line-height: 52px;
+      }
+
+      .about-distribution {
+        font-size: 20px;
+        line-height: 28px;
+      }
+
+      .service-heading {
+        font-size: 24px;
+        line-height: 32px;
+      }
+
+      .cta-content {
+        font-size: 36px;
+        line-height: 44px;
+      }
+
+      .nav-cta,
+      .hero-btn,
+      .about-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .left-content img {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .logo img {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- nav-bar section -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/667944a45705f32df9888755_agnci.svg"
+        alt="AGNCI Logo">
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Page <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-down">
+          <path d="m6 9 6 6 6-6" />
+        </svg></a>
+      <a href="#">Work</a>
+    </div>
+
+    <button class="nav-cta">
+      Contact us <img
+        src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/6655a8d48fd0062f306502ad_Button%20Icon.svg"
+        alt="">
+    </button>
+  </div>
+
+  <!-- hero-section -->
+  <div class="hero-section">
+    <div class="right-content">
+      <div class="hero-title">
+        <span class="hero-text">A</span>
+        <span class="text-wrapper">G</span>
+        <span class="hero-text">N</span>
+        <span class="text-wrapper">C</span>
+        <span class="hero-text">I</span>
+      </div>
+      <div class="hero-content">
+        Turn your dreams into reality. Our blend of <span class="text-style">creativity, Innovation & Expertise</span>
+        crafts bespoke solutions that surpass expectations, spanning from visuals to websites.
+      </div>
+      <div class="hero-distribtion-wrap">
+        <button class="hero-btn">
+          <img src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/6655aae14283860d4a020b1c_eye.svg"
+            alt=""> View work
+        </button>
+        <p>10X award-winning agency for professional growth.</p>
+      </div>
+    </div>
+
+    <div class="left-content">
+      <img src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/66582dcebe82c7b92c4e6a2f_hero-img1.png"
+        alt="Hero Image">
+    </div>
+  </div>
+
+  <!-- about-section -->
+  <div class="about-section">
+    <div class="about-content">
+      <div class="right-container">
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80"
+          alt="About Image">
+      </div>
+      <div class="left-container">
+        <div class="counter">
+          <div class="one">
+            <div class="about-counter-title">50+</div>
+            <div class="counter-title">Happy clients</div>
+          </div>
+          <div class="one">
+            <div class="about-counter-title">10Y</div>
+            <div class="counter-title">Team experience</div>
+          </div>
+        </div>
+        <div class="about-distribution">
+          We are a rule-breaking design agency, crafting exceptional brands and fueled by endless extremely high power
+          to the AGNCI Agency.
+        </div>
+        <button class="about-btn">About us</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- work-section -->
+  <div class="work-section">
+    <div class="work-title-wrap">
+      <div class="work-heading">
+        Latest <span class="work-highlight">work</span>
+      </div>
+      <div class="work-body-heading">
+        <img src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/6656b8f17519346bfe251f6c_arrow-right.svg"
+          alt=""> View all work
+      </div>
+    </div>
+
+    <div class="work-grid-section">
+      <div class="work-image">
+        <img
+          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80"
+          alt="Work Image 1">
+      </div>
+      <div class="work-image">
+        <img
+          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80"
+          alt="Work Image 2">
+      </div>
+      <div class="work-image">
+        <img
+          src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80"
+          alt="Work Image 3">
+      </div>
+      <div class="work-image">
+        <img
+          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80"
+          alt="Work Image 4">
+      </div>
+    </div>
+
+    <div class="client-logo-list-section">
+      <div class="clients"><img
+          src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/665d9f5f24f4466669cb8c33_Compnay%20logo-16.svg"
+          alt="Client Logo"></div>
+      <div class="clients"><img
+          src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/665d9ebebc6d7e61fa4cd863_Compnay%20logo-8.svg"
+          alt="Client Logo"></div>
+      <div class="clients"><img
+          src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/665d9dcac2837af5dd9a0aa9_Compnay%20logo.svg"
+          alt="Client Logo"></div>
+      <div class="clients"><img
+          src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/665d9f003c3a14c8248e5951_Compnay%20logo-5.svg"
+          alt="Client Logo"></div>
+      <div class="clients"><img
+          src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/665d9f386589fc2714c597c3_Compnay%20logo-15.svg"
+          alt="Client Logo"></div>
+    </div>
+  </div>
+
+  <!-- service-section -->
+  <div class="service-section">
+    <div class="service-title-section">
+      Our<span class="service-highlight"> services</span>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-heading">1. Web design and development</div>
+      <div class="service-image">
+        <img
+          src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+          alt="Web Design">
+      </div>
+      <div class="service-subheading">
+        Crafting captivating websites from start to finish, tailored to your brand's identity and goals for an engaging
+        user experience.
+      </div>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-heading">2. Graphic design</div>
+      <div class="service-image">
+        <img
+          src="https://images.unsplash.com/photo-1626785774625-0b1c2c4eab67?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+          alt="Graphic Design">
+      </div>
+      <div class="service-subheading">
+        Our designers craft captivating visuals, from logos to branding materials, bringing your brand to life.
+      </div>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-heading">3. Digital marketing</div>
+      <div class="service-image">
+        <img
+          src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+          alt="Digital Marketing">
+      </div>
+      <div class="service-subheading">
+        Boost your online presence with digital marketing SEO, social media, email, and PPC—we've got you covered.
+      </div>
+    </div>
+
+    <div class="service-grid-last">
+      <div class="service-heading">4. Content creation</div>
+      <div class="service-image">
+        <img
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+          alt="Content Creation">
+      </div>
+      <div class="service-subheading">
+        Engage your audience with compelling content from blogs to videos that drive quality results.
+      </div>
+    </div>
+  </div>
+
+  <!-- video-section -->
+  <div class="video-section">
+    <div class="pause-btn">
+      <img src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/665873766b6a709022f6008c_pause.svg"
+        alt="Pause">
+    </div>
+  </div>
+
+  <!-- blog-section -->
+  <div class="blog-section">
+    <div class="blog-title-section">
+      Recent <span class="blog-highlight">blogs</span>
+    </div>
+
+    <div class="blog-grid">
+      <div class="blog-content-wrap">
+        <div class="blog-image">
+          <img
+            src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            alt="Blog Image">
+        </div>
+        <div class="blog-text-content">
+          <div class="blog-title-wrap">
+            Navigating SEO strategies for the upcoming year
+          </div>
+          <div class="blog-publish-title">
+            June 10, 2024
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-content-wrap">
+        <div class="blog-image">
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            alt="Blog Image">
+        </div>
+        <div class="blog-text-content">
+          <div class="blog-title-wrap">
+            The rise of Immersive content in digital marketing
+          </div>
+          <div class="blog-publish-title">
+            June 10, 2024
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-content-wrap">
+        <div class="blog-image">
+          <img
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            alt="Blog Image">
+        </div>
+        <div class="blog-text-content">
+          <div class="blog-title-wrap">
+            Maximizing ROI with effective social media advertising
+          </div>
+          <div class="blog-publish-title">
+            June 10, 2024
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-content-wrap">
+        <div class="blog-image">
+          <img
+            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            alt="Blog Image">
+        </div>
+        <div class="blog-text-content">
+          <div class="blog-title-wrap">
+            Innovations driving digital transformation
+          </div>
+          <div class="blog-publish-title">
+            June 10, 2024
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- cta-section -->
+  <div class="cta-section">
+    <div class="cta-content">
+      If you have a project in mind, reach out to us! Follow us on <span class="social-media">Facebook</span> social
+      media updates.
+    </div>
+  </div>
+
+  <!-- footer-section -->
+  <div class="footer-section">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <img src="https://cdn.prod.website-files.com/665588a729fcc1c98eedc72b/66794d49db0ba2352b8931a0_big-agnci.svg"
+            alt="AGNCI Logo">
+        </div>
+        <div class="footer-distribation">
+          We're dedicated to empowering individuals to reach their full potential through personalized guidance for
+          personal and professional growth.
+        </div>
+      </div>
+
+      <div class="footer-menu-list">
+        <a href="">Home</a>
+        <a href="">About</a>
+        <a href="">Work</a>
+        <a href="">Blog</a>
+        <a href="">Sitemap</a>
+        <a href="">Contact</a>
+        <a href="">Privacy Policy</a>
+        <a href="">Terms of Service</a>
+      </div>
+
+      <div class="footer-link">
+        <a href="">Components</a>
+        <a href="">Icons</a>
+        <a href="">Typography</a>
+        <a href="">Colors</a>
+        <a href="">Error 404</a>
+      </div>
+    </div>
+
+    <div class="footer-img">
+      <img
+        src="https://images.unsplash.com/photo-1618044733300-9472054094ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+        alt="Footer Design">
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const menuToggle = document.querySelector('.menu-toggle');
+
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    }
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        const menuToggle = document.querySelector('.menu-toggle');
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const navLinks = document.querySelector('.nav-links');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navbar = document.querySelector('.navbar');
+
+      if (!navbar.contains(e.target)) {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+
+</html> class="about-counter-title">150+</div>
+<div class="counter-title">Completed projects</div>
+</div>
+<div class="one">
+  <div

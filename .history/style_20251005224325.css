@@ -1,0 +1,294 @@
+/* Reset and General Styles (Keep these) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Bricolage Grotesque", sans-serif;
+  background-color: #f0ecdc;
+  line-height: 1.6; /* Add a default line-height for readability */
+}
+
+img {
+  max-width: 100%; /* Make images responsive */
+  height: auto;
+  display: block; /* Eliminates extra space below images */
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* Use the parent's text color by default */
+}
+
+/* Utility Classes (for reuse) */
+.container {
+  width: 90%; /* Use a percentage for responsiveness */
+  max-width: 1400px; /* But limit the maximum width */
+  margin: 0 auto; /* Center the container */
+  padding: 0 15px; /* Add some horizontal padding */
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0ecdc;
+  margin: 20px;
+}
+
+.logo {
+  width: 100px; /* Adjust logo size */
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  font-size: 16px;
+}
+
+.nav-cta {
+  padding: 10px 20px;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  display: flex;
+  flex-direction: column; /* Stack content vertically on smaller screens */
+  padding: 50px 20px;
+}
+
+.hero-text,
+.text-wrapper {
+  font-size: 4em; /* Relative font size */
+  line-height: 1;
+}
+
+.hero-content {
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.hero-distribtion-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* About Section Styles */
+.about-section {
+  padding: 50px 20px;
+  background-color: #faf6ea;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Work Section Styles */
+.work-section {
+  padding: 50px 20px;
+}
+
+.work-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.work-grid-section {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on smaller screens */
+  gap: 20px;
+}
+
+/* Service Section Styles */
+.service-section {
+  padding: 50px 20px;
+  background-color: #faf6ea;
+}
+
+.service-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Blog Section Styles */
+.blog-section {
+  padding: 50px 20px;
+}
+
+.blog-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* CTA Section Styles */
+.cta-section {
+  padding: 50px 20px;
+  background-color: #f0ecdc;
+}
+
+.cta-content {
+  font-size: 2em;
+  text-align: center;
+}
+
+/* Footer Section Styles */
+.footer-section {
+  padding: 50px 20px;
+  background-color: black;
+  color: white;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* Media Queries */
+
+/* Small screens (phones) */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .hero-section {
+    padding: 20px;
+  }
+
+  .hero-text,
+  .text-wrapper {
+    font-size: 3em;
+  }
+
+  .hero-content {
+    font-size: 1.2em;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .counter {
+    grid-template-columns: 1fr;
+  }
+
+  .work-grid-section {
+    grid-template-columns: 1fr;
+  }
+
+  .client-logo-list-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-content {
+    font-size: 1.5em;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .navbar {
+    padding: 30px;
+  }
+
+  .hero-section {
+    padding: 30px;
+  }
+
+  .hero-text,
+  .text-wrapper {
+    font-size: 4em;
+  }
+
+  .hero-content {
+    font-size: 1.4em;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .counter {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .work-grid-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .client-logo-list-section {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cta-content {
+    font-size: 1.8em;
+  }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 1025px) {
+  .navbar {
+    padding: 40px;
+  }
+
+  .hero-section {
+    padding: 40px;
+  }
+
+  .hero-text,
+  .text-wrapper {
+    font-size: 5em;
+  }
+
+  .hero-content {
+    font-size: 1.6em;
+  }
+
+  .about-content {
+    flex-direction: row;
+  }
+
+  .counter {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .work-grid-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .client-logo-list-section {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .cta-content {
+    font-size: 2em;
+  }
+}
